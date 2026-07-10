@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Huella Nativa - Ecosistema outdoor para familias con niños neurodivergentes. Seguimiento clínico, e-commerce adaptativo y tecnología PudúSens IoT.">
+  <title>Huella Nativa | Exploración, Aventura y Autonomía</title>
+  
+  <!-- Google Fonts: Outfit (headings) and Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" role="status">
+    <span>🌿 EQUIPAMIENTO ADAPTATIVO CON HUELLA ECOLÓGICA Y SOCIAL</span>
+  </div>
+
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-logo" aria-label="Logo Huella Nativa">
+          <!-- Mountain logo in SVG -->
+          <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 22h20L12 2z"></path>
+            <path d="M12 2v20"></path>
+            <path d="M12 7l-5 5"></path>
+            <path d="M12 12l6 6"></path>
+          </svg>
+          <span class="brand-name">HUELLA NATIVA</span>
+        </div>
+        <p class="brand-slogan">Exploración y autonomía sin límites</p>
+      </div>
+
+      <!-- Navigation Tabs (Inicio, Aventura y Clínica, Tienda) -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <button id="tab-home-btn" class="nav-btn active" aria-selected="true" aria-controls="home-section">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Inicio
+        </button>
+        <button id="tab-dashboard-btn" class="nav-btn" aria-selected="false" aria-controls="dashboard-section">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="9" y1="9" x2="21" y2="9"></line><line x1="9" y1="15" x2="21" y2="15"></line><line x1="12" y1="6" x2="18" y2="6"></line><line x1="12" y1="12" x2="18" y2="12"></line><line x1="12" y1="18" x2="18" y2="18"></line></svg>
+          Aventura & Clínica
+        </button>
+        <button id="tab-store-btn" class="nav-btn" aria-selected="false" aria-controls="store-section">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          Equipamiento Adaptativo
+        </button>
+      </nav>
+
+      <!-- Cart Trigger & Connection Badge -->
+      <div class="header-actions">
+        <div id="connection-indicator" class="connection-badge status-disconnected" aria-live="polite">
+          <span class="status-dot"></span>
+          <span class="status-text">PudúSens Offline</span>
+        </div>
+        
+        <button id="cart-toggle-btn" class="cart-trigger-btn" aria-label="Ver Carrito de Compras">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span id="cart-badge" class="cart-badge hidden">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main App Layout -->
+  <div class="app-layout">
+    <main class="main-content">
+      
+      <!-- SECTION 0: Landing / Home Page -->
+      <section id="home-section" class="tab-panel active" role="tabpanel" aria-labelledby="tab-home-btn">
+        
+        <!-- Hero Section with HD Background Video -->
+        <div class="hero-container">
+          <video class="hero-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+          </video>
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1>Exploración sin límites</h1>
+            <p>El primer ecosistema outdoor diseñado para empoderar a familias con niños neurodivergentes. Rutas seguras diseñadas por terapeutas, prendas con autonomía propioceptiva y monitoreo telemétrico inteligente.</p>
+            <div class="hero-actions-ctas">
+              <button id="hero-cta-dashboard" class="btn btn-primary">Registrar Explorador</button>
+              <button id="hero-cta-store" class="btn btn-secondary">Explorar Tienda</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propósitos / Beneficios -->
+        <div class="purpose-section">
+          <div class="panel-header">
+            <h2>Nuestra Misión</h2>
+            <p>Fusionar el diseño técnico de montaña y la contención clínica para dar paso a la libertad.</p>
+          </div>
+          <div class="purpose-grid">
+            <div class="purpose-card card">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3>Seguridad Clínica</h3>
+              <p>Recomendaciones y pautas de regulación sensorial diseñadas en colaboración con terapeutas del programa PIE para caminatas sin sorpresas.</p>
+            </div>
+            
+            <div class="purpose-card card">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <h3>Vestuario Autónomo</h3>
+              <p>Ropa técnica con cierres magnéticos que eliminan la frustración del vestir y costuras planas termo-selladas para evitar sobrecargas táctiles.</p>
+            </div>
+
+            <div class="purpose-card card">
+              <div class="purpose-icon">
+                <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+              </div>
+              <h3>Conexión PudúSens</h3>
+              <p>Seguimiento pasivo mediante telemetría Bluetooth con nuestro peluche sensorial de pudú, anticipando crisis sensoriales en la ruta.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Showcase de Niños en la Naturaleza con Cuidadores -->
+        <div class="video-showcase-section">
+          <div class="panel-header">
+            <h2>Experiencias en Alta Montaña</h2>
+            <p>Descubre el impacto de la naturaleza en la autorregulación y la conexión familiar.</p>
+          </div>
+          
+          <div class="video-gallery">
+            <!-- Video 1 -->
+            <div class="video-card card">
+              <div class="video-wrapper">
+                <video loop muted controls poster="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600">
+                  <source src="https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0227e339d3c11789bb5d9e504c55986&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                  Tu navegador no soporta el tag de video.
+                </video>
+              </div>
+              <div class="video-card-info">
+                <span class="video-badge">Cuidado & Naturaleza</span>
+                <h4>Sendero de Integración Sensorial</h4>
+                <p>Sesiones guiadas al aire libre donde los niños caminan, tocan texturas y coordinan su sistema vestibular con el acompañamiento activo del cuidador.</p>
+              </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card card">
+              <div class="video-wrapper">
+                <video loop muted controls poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600">
+                  <source src="https://player.vimeo.com/external/435674703.sd.mp4?s=6f41161d1ba070ee78c3b7f43de90c2e3678a280&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                  Tu navegador no soporta el tag de video.
+                </video>
+              </div>
+              <div class="video-card-info">
+                <span class="video-badge">Aventura & Regulación</span>
+                <h4>Superación de Obstáculos Naturales</h4>
+                <p>Niños ganando autonomía propioceptiva al trepar rocas estables y caminar por senderos adaptados utilizando mochilas ergonómicas con peso.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SECTION A: Clinical and Strategic Dashboard -->
+      <section id="dashboard-section" class="tab-panel" role="tabpanel" aria-labelledby="tab-dashboard-btn">
+        <div class="panel-header">
+          <h2>Monitoreo Clínico y Estrategias Outdoor</h2>
+          <p>Configura el perfil de tu pequeño explorador para desbloquear rutas adaptadas y pautas de regulación natural.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Columna Izquierda: Formulario + Historial de Registros -->
+          <div class="dashboard-left-col">
+            <!-- Form Card -->
+            <div class="form-container card">
+              <h3 class="card-title">Registro de Explorador</h3>
+              <form id="explorer-form" novalidate>
+                <div class="form-group">
+                  <label for="explorer-name">Nombre del Niño/a</label>
+                  <input type="text" id="explorer-name" placeholder="Ej. Mateo" required aria-describedby="name-error">
+                  <span class="error-msg" id="name-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="caregiver-contact">Contacto del Cuidador (Email o Celular)</label>
+                  <input type="text" id="caregiver-contact" placeholder="Ej. mama.mateo@email.com o +56912345678" required aria-describedby="contact-error">
+                  <span class="error-msg" id="contact-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="sensory-profile">Perfil Sensorial Predominante</label>
+                  <select id="sensory-profile" required aria-describedby="profile-error">
+                    <option value="" disabled selected>Selecciona un perfil...</option>
+                    <option value="Hipersensible">Hipersensible (Evitativo o defensivo sensorial)</option>
+                    <option value="Hiposensible">Hiposensible (Bajo registro o reactividad lenta)</option>
+                    <option value="Buscador">Buscador Sensorial (Necesidad activa de estímulo propioceptivo)</option>
+                  </select>
+                  <span class="error-msg" id="profile-error" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="clinical-notes">Notas Clínicas o Sugerencias del Terapeuta (PIE/TO)</label>
+                  <textarea id="clinical-notes" placeholder="Ej. Evitar senderos con cruces de agua ruidosos. Tolera mejor texturas suaves y peso en la espalda." rows="4" aria-describedby="notes-error"></textarea>
+                  <span class="error-msg" id="notes-error" aria-live="polite"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span>Generar Plan de Expedición</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- Exploradores Registrados (Historial LocalStorage) -->
+            <div class="history-container card">
+              <h3 class="card-title">Exploradores Registrados</h3>
+              <div class="table-responsive">
+                <table class="history-table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Perfil</th>
+                      <th>Contacto</th>
+                      <th>Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="history-tbody">
+                    <!-- Dinámico por JS -->
+                    <tr>
+                      <td colspan="4" class="no-history-text">No hay exploradores registrados en el historial local.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div class="strategy-output-container">
+            <div id="empty-state" class="empty-state card">
+              <div class="empty-icon">
+                <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h4>Tu Bitácora de Expedición está Vacía</h4>
+              <p>Completa el Registro del Explorador para estructurar de manera dinámica las estrategias de senderismo seguro y actividades 'antigravedad' recomendadas para interior.</p>
+            </div>
+            
+            <div id="strategy-result" class="hidden">
+              <!-- Dynamically populated card structure will go here via document.createElement -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION B: Adaptive Outdoor E-Commerce -->
+      <section id="store-section" class="tab-panel" role="tabpanel" aria-labelledby="tab-store-btn">
+        <div class="panel-header">
+          <h2>Equipamiento Outdoor Adaptativo</h2>
+          <p>Indumentaria técnica de alta montaña, diseñada específicamente para otorgar autonomía y comodidad sensorial.</p>
+        </div>
+
+        <!-- Búsqueda y Filtros de Productos -->
+        <div class="store-controls card">
+          <div class="search-box">
+            <label for="search-input" class="sr-only">Buscar equipamiento</label>
+            <input type="text" id="search-input" placeholder="Buscar por nombre, tela, broches... (ej: cierres)">
+          </div>
+          <div class="category-filters" role="group" aria-label="Filtrar por categoría">
+            <button class="filter-btn active" data-category="todos">Todos</button>
+            <button class="filter-btn" data-category="Indumentaria">Indumentaria</button>
+            <button class="filter-btn" data-category="Accesorios">Accesorios</button>
+          </div>
+        </div>
+
+        <!-- Product Catalog Grid -->
+        <div id="product-grid" class="product-grid">
+          <!-- Dynamically populated via document.createElement -->
+        </div>
+      </section>
+    </main>
+
+    <!-- SECTION C: PudúSens Monitor (Simulated IoT) -->
+    <aside class="sidebar-monitor" aria-label="Monitor PudúSens IoT">
+      <div class="monitor-card card">
+        <div class="monitor-header">
+          <div class="monitor-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+            </svg>
+            <span class="monitor-title">PudúSens v1.0</span>
+          </div>
+          <span class="badge badge-iot">IoT Simulado</span>
+        </div>
+
+        <p class="monitor-desc">Peluche propioceptivo inteligente. Conecta por Bluetooth para medir el nivel de activación en tiempo real.</p>
+
+        <!-- Connection and Status Dashboard -->
+        <div class="iot-status-box">
+          <div class="iot-status-row">
+            <span class="status-label">Estado Conexión:</span>
+            <span id="pudu-connection-status" class="status-value offline">Desconectado</span>
+          </div>
+          
+          <div class="iot-status-row">
+            <span class="status-label">Batería Pudú:</span>
+            <div class="battery-meter">
+              <div id="pudu-battery-level" class="battery-bar" style="width: 0%;"></div>
+            </div>
+            <span id="pudu-battery-text" class="battery-text">--%</span>
+          </div>
+
+          <div class="iot-status-row">
+            <span class="status-label">Hormona (Simulada):</span>
+            <span id="pudu-stress-index" class="status-value">--</span>
+          </div>
+        </div>
+
+        <div class="iot-actions">
+          <button id="pudu-connect-btn" class="btn btn-secondary btn-full">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+            <span>Conectar Bluetooth</span>
+          </button>
+          
+          <button id="pudu-stress-btn" class="btn btn-danger btn-full" disabled>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Simular Sobrecarga</span>
+          </button>
+        </div>
+
+        <!-- Alert Output Area -->
+        <div id="pudu-alert-area" class="alert-output-area">
+          <div class="empty-alerts">
+            <p>PudúSens inactivo. Conéctalo vía Bluetooth para iniciar la telemetría.</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Shopping Cart Slide-Over Drawer -->
+  <div id="cart-drawer" class="cart-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+    <div class="cart-overlay" id="cart-overlay-btn"></div>
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3 id="cart-title">Tu Carrito Adaptativo</h3>
+        <button id="cart-close-btn" class="btn-close" aria-label="Cerrar Carrito">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Scrollable cart items list -->
+      <div id="cart-items-container" class="cart-items-container">
+        <!-- Dynamically populated via document.createElement -->
+      </div>
+
+      <!-- Cart footer with values -->
+      <div class="cart-footer">
+        <div class="price-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0</span>
+        </div>
+        <div class="price-row">
+          <span>Despacho (Gratuito)</span>
+          <span id="cart-shipping">$0</span>
+        </div>
+        <div class="price-row total-row">
+          <span>Total CLP</span>
+          <span id="cart-total">$0</span>
+        </div>
+
+        <button id="checkout-btn" class="btn btn-primary btn-full btn-checkout">
+          Proceder al Pago Seguro
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>HUELLA NATIVA</h4>
+        <p>Impulsando la neurodiversidad al aire libre. Todos los derechos reservados &copy; 2026.</p>
+      </div>
+      <div class="footer-notes">
+        <p>🔒 Formulario Clínico y E-commerce 100% Protegidos contra Vulnerabilidades XSS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
